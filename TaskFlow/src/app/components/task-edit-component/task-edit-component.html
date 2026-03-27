@@ -1,1 +1,62 @@
-<p>task-edit-component works!</p>
+<div class="container mt-4 px-0" style="max-width: 600px;" *ngIf="editForm">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h4 class="text-success fw-bold mb-0">Edit Task</h4>
+      <button type="button" class="btn btn-info text-white rounded-pill px-3 shadow-sm border-dark border-2 fw-bold" style="background-color: #00d4ff;">
+        Editing Mode
+      </button>
+    </div>
+  
+    <form [formGroup]="editForm" (ngSubmit)="onUpdate()">
+      <ul class="list-group shadow-sm border-0">
+        
+        <li class="list-group-item d-flex justify-content-between align-items-center p-3 border-dark border-2 mb-2 rounded-4" style="background-color: #a3e635;">
+          <div class="w-75">
+            <small class="text-uppercase fw-bold d-block text-dark" style="font-size: 0.7rem;">Task Title</small>
+            <input type="text" formControlName="title" class="form-control border-0 bg-transparent fw-bold fs-5 p-0 text-dark shadow-none">
+          </div>
+          <span class="badge bg-transparent text-dark border border-dark rounded-pill fw-bold">ID: {{ taskId }}</span>
+        </li>
+  
+        <li class="list-group-item d-flex justify-content-between align-items-center p-3 border-dark border-2 mb-2 rounded-4" style="background-color: #00d4ff;">
+          <div class="w-75">
+            <small class="text-uppercase fw-bold d-block text-dark" style="font-size: 0.7rem;">Due Date</small>
+            <input type="date" formControlName="dueDate" class="form-control border-0 bg-transparent fw-bold p-0 text-dark shadow-none">
+          </div>
+          <span class="badge bg-transparent text-dark border border-dark rounded-pill fw-bold">Deadline</span>
+        </li>
+  
+        <li class="list-group-item d-flex justify-content-between align-items-center p-3 border-dark border-2 mb-2 rounded-4" style="background-color: #fb7185;">
+          <div class="w-75">
+            <small class="text-uppercase fw-bold d-block text-dark" style="font-size: 0.7rem;">Priority Level</small>
+            <select formControlName="priority" class="form-select border-0 bg-transparent fw-bold p-0 text-dark shadow-none">
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+          <span class="badge bg-dark text-white rounded-pill fw-bold px-3">Priority</span>
+        </li>
+  
+        <li class="list-group-item d-flex justify-content-between align-items-center p-3 border-dark border-2 rounded-4 shadow-sm">
+          <div class="w-75">
+            <small class="text-uppercase fw-bold d-block text-muted" style="font-size: 0.7rem;">Current Status</small>
+            <select formControlName="status" class="form-select border-0 bg-transparent fw-bold p-0 text-dark shadow-none">
+              <option value="Pending">Pending</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+          <span class="badge bg-transparent text-dark border border-dark rounded-pill fw-bold">Status</span>
+        </li>
+      </ul>
+  
+      <div class="mt-4 d-flex gap-2">
+        <button type="submit" class="btn flex-grow-1 fw-bold border-dark border-2 py-2 shadow-sm rounded-3" style="background-color: #ffc107;">
+          Save Changes
+        </button>
+        <a routerLink="../info" class="btn btn-white bg-white flex-grow-1 fw-bold border-dark border-2 py-2 shadow-sm rounded-3">
+          Cancel Edit
+        </a>
+      </div>
+    </form>
+  </div>
+  
