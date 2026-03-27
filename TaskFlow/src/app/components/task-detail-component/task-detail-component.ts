@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-task-detail-component',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterOutlet],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './task-detail-component.html'
 })
 export class TaskDetailComponent implements OnInit {
