@@ -1,60 +1,61 @@
 <div class="container mt-4 px-0" style="max-width: 600px;" *ngIf="task; else noTask">
-  <div class="d-flex justify-content-between align-items-center mb-3">
-    <h4 class="text-primary fw-bold mb-0">Task Overview</h4>
 
-    <button class="btn btn-sm btn-info text-white rounded-pill px-3 shadow-sm" (click)="loadTasks()">
-      <i class="bi bi-info-circle me-1"></i> Refresh Info
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="fw-bold mb-0" style="color: #a3e635;">Task Overview</h4>
+    <button class="btn text-white rounded-pill px-3 shadow-sm border-dark border-2 fw-bold" 
+            style="background-color: #00d4ff;" (click)="loadTasks()">
+      Refresh Info
     </button>
   </div>
   
   <ul class="list-group shadow-sm border-0">
 
-    <li class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center p-3 border-0 mb-1 rounded-3">
+    <li class="list-group-item d-flex justify-content-between align-items-center p-3 border-dark border-2 mb-2 rounded-4" 
+        style="background-color: #a3e635;">
       <div>
-        <small class="text-uppercase fw-bold d-block opacity-75" style="font-size: 0.7rem;">Task Title</small>
-        <span class="fs-5 fw-bold">{{ task.title }}</span>
+        <small class="text-uppercase fw-bold d-block text-dark" style="font-size: 0.7rem;">Task Title</small>
+        <span class="fs-5 fw-bold text-dark">{{ task.title }}</span>
       </div>
-      <span class="badge bg-primary rounded-pill shadow-sm">ID: {{ task.id }}</span>
+      <span class="badge bg-transparent text-dark border border-dark rounded-pill fw-bold">ID: {{ task.id }}</span>
     </li>
 
-    <li class="list-group-item list-group-item-info d-flex justify-content-between align-items-center p-3 border-0 mb-1 rounded-3">
+    <li class="list-group-item d-flex justify-content-between align-items-center p-3 border-dark border-2 mb-2 rounded-4" 
+        style="background-color: #00d4ff;">
       <div>
-        <small class="text-uppercase fw-bold d-block opacity-75" style="font-size: 0.7rem;">Due Date</small>
-        <span class="fw-semibold">{{ task.dueDate }}</span>
+        <small class="text-uppercase fw-bold d-block text-dark" style="font-size: 0.7rem;">Due Date</small>
+        <span class="fw-bold text-dark">{{ task.dueDate }}</span>
       </div>
-      <span class="badge bg-info text-dark rounded-pill">Deadline</span>
+      <span class="badge bg-transparent text-dark border border-dark rounded-pill fw-bold text-uppercase">Deadline</span>
     </li>
 
-    <li class="list-group-item d-flex justify-content-between align-items-center p-3 border-0 mb-1 rounded-3"
-        [ngClass]="{
-          'list-group-item-danger': task.priority === 'High',
-          'list-group-item-warning': task.priority === 'Medium',
-          'list-group-item-info': task.priority === 'Low'
-        }">
+    <li class="list-group-item d-flex justify-content-between align-items-center p-3 border-dark border-2 mb-2 rounded-4"
+        [style.background-color]="task.priority === 'High' ? '#fb7185' : task.priority === 'Medium' ? '#ffc107' : '#00d4ff'">
       <div>
-        <small class="text-uppercase fw-bold d-block opacity-75" style="font-size: 0.7rem;">Priority Level</small>
-        <span class="fw-bold">{{ task.priority }}</span>
+        <small class="text-uppercase fw-bold d-block text-dark" style="font-size: 0.7rem;">Priority Level</small>
+        <span class="fw-bold text-dark">{{ task.priority }}</span>
       </div>
-      <span class="badge bg-dark rounded-pill shadow-sm">Priority</span>
+      <span class="badge bg-dark text-white rounded-pill fw-bold px-3">Priority</span>
     </li>
 
-    <li class="list-group-item d-flex justify-content-between align-items-center p-3 border-0 rounded-3"
-        [ngClass]="task.status === 'Completed' ? 'list-group-item-success' : 'list-group-item-secondary'">
+    <li class="list-group-item d-flex justify-content-between align-items-center p-3 border-dark border-2 rounded-4 shadow-sm bg-white">
       <div>
-        <small class="text-uppercase fw-bold d-block opacity-75" style="font-size: 0.7rem;">Current Status</small>
-        <span class="fw-bold">{{ task.status }}</span>
+        <small class="text-uppercase fw-bold d-block text-muted" style="font-size: 0.7rem;">Current Status</small>
+        <span class="fw-bold text-dark">{{ task.status }}</span>
       </div>
-      <span class="badge rounded-pill shadow-sm" [ngClass]="task.status === 'Completed' ? 'bg-success' : 'bg-secondary'">
+      <span class="badge bg-transparent text-dark border border-dark rounded-pill fw-bold text-uppercase">
         {{ task.status }}
       </span>
     </li>
   </ul>
 
   <div class="mt-4 d-flex gap-2">
-    <a [routerLink]="['/tasks', task.id, 'edit']" class="btn btn-warning flex-grow-1 fw-bold shadow-sm">
+    <a [routerLink]="['/tasks', task.id, 'edit']" 
+       class="btn flex-grow-1 fw-bold border-dark border-2 py-2 shadow-sm rounded-3" 
+       style="background-color: #ffc107;">
       Edit Task
     </a>
-    <a routerLink="/tasks" class="btn btn-outline-secondary flex-grow-1 fw-bold shadow-sm">
+    <a routerLink="/tasks" 
+       class="btn btn-white bg-white flex-grow-1 fw-bold border-dark border-2 py-2 shadow-sm rounded-3">
       Back to List
     </a>
   </div>
@@ -62,7 +63,7 @@
 
 <ng-template #noTask>
   <div class="text-center py-5">
-    <div class="spinner-border text-primary" role="status"></div>
-    <p class="text-muted mt-2">Searching for task details...</p>
+    <div class="spinner-border border-dark" role="status" style="color: #a3e635;"></div>
+    <p class="text-muted mt-2 fw-bold">Searching for task...</p>
   </div>
 </ng-template>
