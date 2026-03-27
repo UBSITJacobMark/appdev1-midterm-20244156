@@ -1,14 +1,14 @@
 <div class="container mt-4 px-0" style="max-width: 600px;" *ngIf="task; else noTask">
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h4 class="text-primary fw-bold mb-0">Task Overview</h4>
-    <!-- Ensure loadTasks() exists in task-info-component.ts -->
+
     <button class="btn btn-sm btn-info text-white rounded-pill px-3 shadow-sm" (click)="loadTasks()">
       <i class="bi bi-info-circle me-1"></i> Refresh Info
     </button>
   </div>
   
   <ul class="list-group shadow-sm border-0">
-    <!-- Title Row -->
+
     <li class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center p-3 border-0 mb-1 rounded-3">
       <div>
         <small class="text-uppercase fw-bold d-block opacity-75" style="font-size: 0.7rem;">Task Title</small>
@@ -17,7 +17,6 @@
       <span class="badge bg-primary rounded-pill shadow-sm">ID: {{ task.id }}</span>
     </li>
 
-    <!-- Due Date Row -->
     <li class="list-group-item list-group-item-info d-flex justify-content-between align-items-center p-3 border-0 mb-1 rounded-3">
       <div>
         <small class="text-uppercase fw-bold d-block opacity-75" style="font-size: 0.7rem;">Due Date</small>
@@ -26,7 +25,6 @@
       <span class="badge bg-info text-dark rounded-pill">Deadline</span>
     </li>
 
-    <!-- Priority Row -->
     <li class="list-group-item d-flex justify-content-between align-items-center p-3 border-0 mb-1 rounded-3"
         [ngClass]="{
           'list-group-item-danger': task.priority === 'High',
@@ -40,7 +38,6 @@
       <span class="badge bg-dark rounded-pill shadow-sm">Priority</span>
     </li>
 
-    <!-- Status Row -->
     <li class="list-group-item d-flex justify-content-between align-items-center p-3 border-0 rounded-3"
         [ngClass]="task.status === 'Completed' ? 'list-group-item-success' : 'list-group-item-secondary'">
       <div>
@@ -53,7 +50,6 @@
     </li>
   </ul>
 
-  <!-- Navigation Buttons -->
   <div class="mt-4 d-flex gap-2">
     <a [routerLink]="['/tasks', task.id, 'edit']" class="btn btn-warning flex-grow-1 fw-bold shadow-sm">
       Edit Task
@@ -62,7 +58,7 @@
       Back to List
     </a>
   </div>
-</div> <!-- MUST CLOSE THIS DIV HERE -->
+</div>
 
 <ng-template #noTask>
   <div class="text-center py-5">
