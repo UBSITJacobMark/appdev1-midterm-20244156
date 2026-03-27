@@ -1,9 +1,4 @@
 # 📝 Personal Task Manager
-
-<p align="center">
-  <img src="https://tenor.com](https://media1.tenor.com/m/gIaioChTOloAAAAd/cat-cute.gif)](https://ih1.redbubble.net/image.5486485728.1378/flat,750x1000,075,t.jpg)" width="300">
-</p>
-
 ## 🚀 Overview
 A high-performance, **lightweight browser-based task manager** designed for seamless workflow orchestration. This application prioritizes a clean UI and modular architecture to provide a frictionless user experience.
 
