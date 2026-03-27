@@ -1,1 +1,60 @@
-<p>task-detail-component works!</p>
+<div class="container mt-4 px-0" style="max-width: 600px;" *ngIf="task; else loading">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h4 class="text-primary fw-bold mb-0">Task Overview</h4>
+      <button class="btn btn-sm btn-info text-white rounded-pill px-3 shadow-sm" (click)="loadTasks()">
+        <i class="bi bi-info-circle me-1"></i> Refresh Info
+      </button>
+    </div>
+    
+    <ul class="list-group shadow-sm border-0">
+      <li class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center p-3 border-0 mb-1 rounded-3">
+        <div>
+          <small class="text-uppercase fw-bold d-block opacity-75" style="font-size: 0.7rem;">Task Title</small>
+          <span class="fs-5 fw-bold">{{ task.title }}</span>
+        </div>
+        <span class="badge bg-primary rounded-pill shadow-sm">ID: {{ task.id }}</span>
+      </li>
+      <li class="list-group-item list-group-item-info d-flex justify-content-between align-items-center p-3 border-0 mb-1 rounded-3">
+        <div>
+          <small class="text-uppercase fw-bold d-block opacity-75" style="font-size: 0.7rem;">Due Date</small>
+          <span class="fw-semibold">{{ task.dueDate }}</span>
+        </div>
+        <span class="badge bg-info text-dark rounded-pill">Deadline</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center p-3 border-0 mb-1 rounded-3"
+          [ngClass]="{
+            'list-group-item-danger': task.priority === 'High',
+            'list-group-item-warning': task.priority === 'Medium',
+            'list-group-item-info': task.priority === 'Low'
+          }">
+        <div>
+          <small class="text-uppercase fw-bold d-block opacity-75" style="font-size: 0.7rem;">Priority Level</small>
+          <span class="fw-bold">{{ task.priority }}</span>
+        </div>
+        <span class="badge bg-dark rounded-pill shadow-sm">Priority</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center p-3 border-0 rounded-3"
+          [ngClass]="task.status === 'Completed' ? 'list-group-item-success' : 'list-group-item-secondary'">
+        <div>
+          <small class="text-uppercase fw-bold d-block opacity-75" style="font-size: 0.7rem;">Current Status</small>
+          <span class="fw-bold">{{ task.status }}</span>
+        </div>
+        <span class="badge rounded-pill shadow-sm" [ngClass]="task.status === 'Completed' ? 'bg-success' : 'bg-secondary'">
+          {{ task.status }}
+        </span>
+      </li>
+    </ul>
+    <div class="mt-4 d-flex gap-2">
+      <a [routerLink]="['/tasks', task.id, 'edit']" class="btn btn-warning flex-grow-1 fw-bold shadow-sm">Edit Task</a>
+      <a routerLink="/tasks" class="btn btn-outline-secondary flex-grow-1 fw-bold shadow-sm">Back to List</a>
+    </div>
+  </div>
+  
+  <ng-template #loading>
+    <div class="text-center py-5">
+      <div class="spinner-border text-primary" role="status"></div>
+      <p class="text-muted mt-2">Loading task info...</p>
+    </div>
+  </ng-template>
+
+  

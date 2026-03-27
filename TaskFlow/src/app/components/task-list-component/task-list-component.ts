@@ -8,7 +8,7 @@ import { Task } from '../../models/task.model';
   selector: 'app-task-list',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  templateUrl: './task-list-components.html'
+  templateUrl: './task-list-component.html'
 })
 export class TaskListComponent implements OnInit {
   tasks: Task[] = [];

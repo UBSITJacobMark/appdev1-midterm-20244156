@@ -4,6 +4,7 @@ import { NavbarComponent } from './components/navbar-component/navbar-component'
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'

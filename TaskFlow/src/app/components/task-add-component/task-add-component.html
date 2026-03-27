@@ -1,1 +1,32 @@
-<p>task-add-component works!</p>
+<div class="container mt-4">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white"><h3>Add New Task</h3></div>
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" class="form-control" [(ngModel)]="newTask.title" name="title" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" [(ngModel)]="newTask.description" name="description"></textarea>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Due Date</label>
+              <input type="date" class="form-control" [(ngModel)]="newTask.dueDate" name="dueDate">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Priority Level</label>
+              <select class="form-select" [(ngModel)]="newTask.priority" name="priority">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success w-100">Save Task</button>
+        </form>
+      </div>
+    </div>
+  </div>
