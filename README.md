@@ -1,7 +1,7 @@
 # 📝 Personal Task Manager
 
 <p align="center">
-  <img src="https://tenor.com" width="300" alt="Productivity Mascot">
+  <img src="[https://tenor.com](https://media1.tenor.com/m/gIaioChTOloAAAAd/cat-cute.gif)" width="300" alt="Productivity Mascot">
 </p>
 
 ## 🚀 Overview
